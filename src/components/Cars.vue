@@ -1,8 +1,6 @@
 <template>
-    <!-- Show loading spinner if waiting for API response -->
     <section class="container" v-if="cars && cars.length && !loading">
         <article class="card" v-for="car of cars" v-bind:key="car.id">
-            <!-- Create some cards on a Grid -->
             <!-- Loop through data response and display in text/select boxes -->
             <!-- Display name from response -->
             <h1>{{car.name}}</h1>
@@ -12,14 +10,19 @@
             <select name="trim" id="trim"></select>
             <select name="wheels" id="wheels"></select>
             <select name="extras" id="extras"></select>
-
-            <!-- IF errored, display some error message for the user -->
         </article>
     </section>
     <div role="note" class="loading" aria-placeholder="Loading" v-else>
         <div role="status" class="loading__ripple">
             <div role="presentation"></div>
             <div role="presentation"></div>
+        </div>
+        <div
+            aria-errormessage="We're sorry, we're not able to retrieve this information at the moment, please try again later!"
+            class="error"
+            v-if="errored"
+        >
+            <p>😞 We're sorry, we're not able to retrieve this information at the moment, please try again later!</p>
         </div>
     </div>
 </template>
