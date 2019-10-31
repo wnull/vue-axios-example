@@ -19,7 +19,7 @@
                 <option
                     v-for="(trim, index) in car.trim_levels"
                     v-bind:key="index"
-                >{{trim.name}} - {{trim.price.toLocaleString("en-gb", { style: 'currency', currency: 'GBP' })}}</option>
+                >{{ trim.name }} - {{ trim.price | currency }}</option>
             </select>
             <select name="wheels" id="wheels"></select>
             <select name="extras" id="extras"></select>
