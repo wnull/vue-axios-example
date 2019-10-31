@@ -4,8 +4,15 @@
             <!-- Loop through data response and display in text/select boxes -->
             <!-- Display name from response -->
             <h1>{{car.name}}</h1>
-            <!-- Display description using Seats:number and convertible:boolean (true) -->
-            <p></p>
+            <p>
+                This
+                <span role="span" v-if="car.convertible">
+                    <em>convertible</em>
+                </span>
+                car
+                has
+                <strong>{{car.seats}}</strong> seats
+            </p>
             <!-- IF data is wheels, trim, or extras, loop through nested object and display name:string & price:number -->
             <select name="trim" id="trim"></select>
             <select name="wheels" id="wheels"></select>
