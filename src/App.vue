@@ -1,5 +1,6 @@
 <template>
     <main role="main" id="app">
+        <a href="https://github.com/laurenclark/fetch-cars">View on Github</a>
         <Cars />
     </main>
 </template>
@@ -21,6 +22,7 @@ export default {
 }
 body {
     padding: 1rem;
+    font-family: Avenir, Roboto, Helvetica, san-serif;
 }
 
 main {

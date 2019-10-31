@@ -11,7 +11,7 @@
                 has
                 <strong>{{car.seats}}</strong> seats
             </p>
-            <!-- TODO: these could be one select component with conditionals but for speed I am just doing it this way - if I have time I will refactor -->
+            <!-- TODO: these could be one <Options /> component with props and conditionals but for speed I am just doing it this way - if I have time I will refactor -->
             <select name="trim" id="trim">
                 <option disabled value>Please select Trim</option>
                 <option
@@ -86,7 +86,6 @@ export default {
 <style lang="scss" scoped>
 .container {
     margin: 2rem 0 0 0;
-    font-family: Avenir, Roboto, Helvetica, san-serif;
 }
 
 .error {
