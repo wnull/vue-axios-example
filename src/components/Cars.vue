@@ -123,7 +123,7 @@ export default {
     }
     select {
         font-size: 1.3rem;
-        padding: 10px;
+        background: #f1f1f1;
         display: block;
         width: 100%;
         border: none;
