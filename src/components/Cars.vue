@@ -12,6 +12,7 @@
                 <strong>{{car.seats}}</strong> seats
             </p>
             <!-- TODO: these could be one <Options /> component with props and conditionals but for speed I am just doing it this way - if I have time I will refactor -->
+            <label for="trim">Trim:</label>
             <select name="trim" id="trim">
                 <option disabled value>Please select Trim</option>
                 <option
@@ -20,6 +21,7 @@
                 >{{trim.name}} - {{trim.price | currency }}</option>
             </select>
 
+            <label for="wheels">Wheels:</label>
             <select name="wheels" id="wheels" v-if="car.wheels.length > 1">
                 <option disabled value>Please select Wheels</option>
                 <option
@@ -34,6 +36,7 @@
                 v-bind:key="index"
             >{{wheel.name}} - {{wheel.price | currency }}</span>
 
+            <label for="trim">Extras:</label>
             <select name="extras" id="extras">
                 <option disabled value>Please select Extras</option>
                 <option
@@ -123,14 +126,20 @@ export default {
         padding: 10px;
         display: block;
         width: 100%;
-        margin: 1rem 0;
+        border: none;
+        margin: 0.2rem 0;
+        height: 40px;
     }
     img {
         order: -1;
         align-self: center;
     }
+
+    label {
+        margin-top: 0.8rem;
+    }
     .singular {
-        margin: 1rem 0;
+        margin: 0.2rem 0;
     }
 }
 .loading {
