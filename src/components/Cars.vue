@@ -13,8 +13,14 @@
                 has
                 <strong>{{car.seats}}</strong> seats
             </p>
-            <!-- IF data is wheels, trim, or extras, loop through nested object and display name:string & price:number -->
-            <select name="trim" id="trim"></select>
+            <!-- TODO: these could be one select component with conditionals but for speed I am just doing it this way - if I have time I will refactor -->
+            <select name="trim" id="trim">
+                <option disabled value>Please select Trim</option>
+                <option
+                    v-for="(trim, index) in car.trim_levels"
+                    v-bind:key="index"
+                >{{trim.name}} - {{trim.price.toLocaleString("en-gb", { style: 'currency', currency: 'GBP' })}}</option>
+            </select>
             <select name="wheels" id="wheels"></select>
             <select name="extras" id="extras"></select>
         </article>
