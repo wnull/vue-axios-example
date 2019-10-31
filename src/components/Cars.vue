@@ -1,7 +1,7 @@
 <template>
     <section class="container" v-if="cars && cars.length && !loading">
         <article class="card" v-for="car of cars" v-bind:key="car.id">
-            <h1>{{car.name}}</h1>
+            <h1>{{ car.name }}</h1>
             <p>
                 This
                 <span role="span" v-if="car.convertible">
@@ -9,7 +9,7 @@
                 </span>
                 car
                 has
-                <strong>{{car.seats}}</strong> seats
+                <strong>{{ car.seats }}</strong> seats
             </p>
             <!-- TODO: these could be one <Options /> component with props and conditionals but for speed I am just doing it this way - if I have time I will refactor -->
             <label for="trim">Trim:</label>
@@ -18,7 +18,7 @@
                 <option
                     v-for="(trim, index) in car.trim_levels"
                     v-bind:key="index"
-                >{{trim.name}} - {{trim.price | currency }}</option>
+                >{{ trim.name }} - {{ trim.price | currency }}</option>
             </select>
 
             <label for="wheels">Wheels:</label>
@@ -27,14 +27,14 @@
                 <option
                     v-for="(wheel, index) in car.wheels"
                     v-bind:key="index"
-                >{{wheel.name}} - {{wheel.price | currency}}</option>
+                >{{ wheel.name }} - {{ wheel.price | currency }}</option>
             </select>
             <span
                 class="singular"
                 v-else
                 v-for="(wheel, index) in car.wheels"
                 v-bind:key="index"
-            >{{wheel.name}} - {{wheel.price | currency }}</span>
+            >{{ wheel.name }} - {{ wheel.price | currency }}</span>
 
             <label for="trim">Extras:</label>
             <select name="extras" id="extras">
@@ -42,7 +42,7 @@
                 <option
                     v-for="(extra, index) in car.extras"
                     v-bind:key="index"
-                >{{extra.name}} - {{extra.price | currency }}</option>
+                >{{ extra.name }} - {{ extra.price | currency }}</option>
             </select>
         </article>
     </section>
