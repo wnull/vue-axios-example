@@ -19,10 +19,30 @@
                 <option
                     v-for="(trim, index) in car.trim_levels"
                     v-bind:key="index"
-                >{{ trim.name }} - {{ trim.price | currency }}</option>
+                >{{trim.name}} - {{trim.price | currency }}</option>
             </select>
-            <select name="wheels" id="wheels"></select>
-            <select name="extras" id="extras"></select>
+
+            <select name="wheels" id="wheels" v-if="car.wheels.length > 1">
+                <option disabled value>Please select Wheels</option>
+                <option
+                    v-for="(wheel, index) in car.wheels"
+                    v-bind:key="index"
+                >{{wheel.name}} - {{wheel.price | currency}}</option>
+            </select>
+            <span
+                class="singular"
+                v-else
+                v-for="(wheel, index) in car.wheels"
+                v-bind:key="index"
+            >{{wheel.name}} - {{wheel.price | currency }}</span>
+
+            <select name="extras" id="extras">
+                <option disabled value>Please select Extras</option>
+                <option
+                    v-for="(extra, index) in car.extras"
+                    v-bind:key="index"
+                >{{extra.name}} - {{extra.price | currency }}</option>
+            </select>
         </article>
     </section>
     <div role="note" class="loading" aria-placeholder="Loading" v-else>
@@ -104,10 +124,16 @@ export default {
     select {
         font-size: 1.3rem;
         padding: 10px;
+        display: block;
+        width: 100%;
+        margin: 1rem 0;
     }
     img {
         order: -1;
         align-self: center;
+    }
+    .singular {
+        margin: 1rem 0;
     }
 }
 .loading {
