@@ -1,8 +1,6 @@
 <template>
     <section class="container" v-if="cars && cars.length && !loading">
         <article class="card" v-for="car of cars" v-bind:key="car.id">
-            <!-- Loop through data response and display in text/select boxes -->
-            <!-- Display name from response -->
             <h1>{{car.name}}</h1>
             <p>
                 This
