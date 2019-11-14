@@ -1,19 +1,25 @@
 <template>
-    <section class="container" v-if="cars && cars.length && !loading">
-        <article class="card" v-for="car of cars" :key="car.id">
-            <CarDescription :name="car.name" :convertable="car.isConvertable" :seats="car.seats" />
-            <Dropdown label="Trim" :selection="car.trim_levels" />
-            <Dropdown label="Extras" :selection="car.extras" />
-            <Dropdown label="Paint" :selection="car.paint" />
-            <Dropdown label="Wheels" :selection="car.wheels" />
-        </article>
-    </section>
-    <div role="note" class="loading" aria-placeholder="Loading" v-else>
-        <div role="status" class="loading__ripple">
-            <div role="presentation"></div>
-            <div role="presentation"></div>
+    <div>
+        <section class="container" v-if="cars && cars.length && !loading">
+            <article class="card" v-for="car of cars" :key="car.id">
+                <CarDescription
+                    :name="car.name"
+                    :convertable="car.isConvertable"
+                    :seats="car.seats"
+                />
+                <Dropdown label="Trim" :selection="car.trim_levels" />
+                <Dropdown label="Extras" :selection="car.extras" />
+                <Dropdown label="Paint" :selection="car.paint" />
+                <Dropdown label="Wheels" :selection="car.wheels" />
+            </article>
+        </section>
+        <div role="note" class="loading" aria-placeholder="Loading" v-else-if="loading">
+            <div role="status" class="loading__ripple">
+                <div role="presentation"></div>
+                <div role="presentation"></div>
+            </div>
         </div>
-        <div :aria-errormessage="errorMessage" class="error" v-if="errored">
+        <div :aria-errormessage="errorMessage" class="error" v-else-if="errored">
             <p>😞 {{ errorMessage }}!</p>
         </div>
     </div>
@@ -46,7 +52,8 @@
                     this.cars = response.data;
                 })
                 .catch(err => {
-                    console.log(err);
+                    console.error(err);
+                    this.loading = false;
                     this.errored = true;
                 })
                 .finally(() => (this.loading = false));
