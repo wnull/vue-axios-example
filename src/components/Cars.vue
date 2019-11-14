@@ -11,8 +11,10 @@
                 has
                 <strong>{{ car.seats }}</strong> seats
             </p>
-
-            <Option :id="cars.id" :trim="cars.trim" />
+            <Dropdown label="Trim" :selection="car.trim_levels" />
+            <Dropdown label="Extras" :selection="car.extras" />
+            <Dropdown label="Paint" :selection="car.paint" />
+            <Dropdown label="Wheels" :selection="car.wheels" />
         </article>
     </section>
     <div role="note" class="loading" aria-placeholder="Loading" v-else>
@@ -20,32 +22,29 @@
             <div role="presentation"></div>
             <div role="presentation"></div>
         </div>
-        <div
-            aria-errormessage="We're sorry, we're not able to retrieve this information at the moment, please try again later!"
-            class="error"
-            v-if="errored"
-        >
-            <p>😞 We're sorry, we're not able to retrieve this information at the moment, please try again later!</p>
+        <div :aria-errormessage="errorMessage" class="error" v-if="errored">
+            <p>😞 {{ errorMessage }}!</p>
         </div>
     </div>
 </template>
 
 <script>
-    import Option from "./Option.vue";
+    import Dropdown from "./Dropdown.vue";
 
     export default {
         name: "cars",
         components: {
-            Option
+            Dropdown
         },
         data() {
             return {
                 cars: [],
                 errored: false,
-                loading: true
+                loading: true,
+                errorMessage:
+                    "We're sorry, we're not able to retrieve this information at the moment, please try again later!"
             };
         },
-        props: ["cars"],
         mounted() {
             const url = `https://demo-api.getmygrades.co.uk/cars`;
             axios
@@ -84,6 +83,7 @@
         border-radius: 2px;
         padding: 2rem;
         font-size: 1.3rem;
+
         &:hover {
             transition: all 0.4s ease;
             transform: translate(0, -10px);

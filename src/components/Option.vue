@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label for>Label</label>
+        <label v-for="(car, index) in cars" :key="index">{{ car.name }}</label>
         <select name id>
             <option disabled value>Please select SOMETHING</option>
             <option>Something {{ 200000 | currency }}</option>
@@ -10,7 +10,8 @@
 
 <script>
     export default {
-        name: "option"
+        name: "dropdown",
+        props: ["cars"]
     };
 </script>
 
