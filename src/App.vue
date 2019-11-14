@@ -43,7 +43,7 @@
         }
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
             grid-gap: 1.3rem;
         }
     }
