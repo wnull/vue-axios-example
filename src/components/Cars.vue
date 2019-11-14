@@ -1,16 +1,7 @@
 <template>
     <section class="container" v-if="cars && cars.length && !loading">
         <article class="card" v-for="car of cars" :key="car.id">
-            <h1>{{ car.name }}</h1>
-            <p>
-                This
-                <span role="span" v-if="car.convertible">
-                    <em>convertible</em>
-                </span>
-                car
-                has
-                <strong>{{ car.seats }}</strong> seats
-            </p>
+            <CarDescription :name="car.name" :convertable="car.isConvertable" :seats="car.seats" />
             <Dropdown label="Trim" :selection="car.trim_levels" />
             <Dropdown label="Extras" :selection="car.extras" />
             <Dropdown label="Paint" :selection="car.paint" />
@@ -30,11 +21,13 @@
 
 <script>
     import Dropdown from "./Dropdown.vue";
+    import CarDescription from "./CarDescription.vue";
 
     export default {
         name: "cars",
         components: {
-            Dropdown
+            Dropdown,
+            CarDescription
         },
         data() {
             return {
