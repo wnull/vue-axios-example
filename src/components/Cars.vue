@@ -4,7 +4,7 @@
             <article class="card" v-for="car of cars" :key="car.id">
                 <CarDescription
                     :name="car.name"
-                    :convertable="car.isConvertable"
+                    :isConvertible="car.convertible"
                     :seats="car.seats"
                 />
                 <Dropdown label="Trim" :selection="car.trim_levels" />

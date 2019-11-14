@@ -3,7 +3,7 @@
         <h1>{{ name }}</h1>
         <p>
             This
-            <span role="span" :v-if="isConvertible">
+            <span role="span" v-if="isConvertible">
                 <em>convertible</em>
             </span>
             car
