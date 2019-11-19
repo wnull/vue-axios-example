@@ -6,19 +6,21 @@
             <span role="span" v-if="isConvertible">
                 <em>convertible</em>
             </span>
-            car
-            has
+            car has
             <strong>{{ seats }}</strong> seats
         </p>
     </header>
 </template>
 
 <script>
-    export default {
-        name: "CarDescription",
-        props: ["name", "isConvertible", "seats"]
-    };
+export default {
+    name: 'CarDescription',
+    props: {
+        name: { type: String },
+        isConvertible: { type: Boolean },
+        seats: { type: Number }
+    }
+}
 </script>
 
-<style>
-</style>
+<style></style>
