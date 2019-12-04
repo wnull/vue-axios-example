@@ -13,33 +13,24 @@
                 <Dropdown label="Wheels" :selection="car.wheels" />
             </article>
         </section>
-        <div
-            role="note"
-            class="loading"
-            aria-placeholder="Loading"
-            v-else-if="loading"
-        >
+        <div role="note" class="loading" aria-placeholder="Loading" v-else-if="loading">
             <div role="status" class="loading__ripple">
                 <div role="presentation"></div>
                 <div role="presentation"></div>
             </div>
         </div>
-        <div
-            :aria-errormessage="errorMessage"
-            class="error"
-            v-else-if="errored"
-        >
+        <div :aria-errormessage="errorMessage" class="error" v-else-if="errored">
             <p>😞 {{ errorMessage }}!</p>
         </div>
     </div>
 </template>
 
 <script>
-import Dropdown from './Dropdown.vue'
-import CarDescription from './CarDescription.vue'
+import Dropdown from "./Dropdown.vue";
+import CarDescription from "./CarDescription.vue";
 
 export default {
-    name: 'cars',
+    name: "cars",
     components: {
         Dropdown,
         CarDescription
@@ -51,23 +42,23 @@ export default {
             loading: true,
             errorMessage:
                 "We're sorry, we're not able to retrieve this information at the moment, please try again later!"
-        }
+        };
     },
     mounted() {
-        const url = `https://demo-api.getmygrades.co.uk/cars`
+        const url = `https://demo-api.getmygrades.co.uk/cars`;
         axios
             .get(url)
             .then(response => {
-                this.cars = response.data
+                this.cars = response.data;
             })
             .catch(err => {
-                console.error(err)
-                this.loading = false
-                this.errored = true
+                console.error(err);
+                this.loading = false;
+                this.errored = true;
             })
-            .finally(() => (this.loading = false))
+            .finally(() => (this.loading = false));
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
