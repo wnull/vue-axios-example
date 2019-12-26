@@ -45,7 +45,7 @@ export default {
         };
     },
     mounted() {
-        const url = `https://demo-api.getmygrades.co.uk/cars`;
+        const url = `/api.json`;
         axios
             .get(url)
             .then(response => {

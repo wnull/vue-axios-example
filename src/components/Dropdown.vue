@@ -3,33 +3,33 @@
         <label :for="label">{{ label }}:</label>
         <select :name="label" :id="label" v-if="selection.length > 1">
             <option disabled value="null">{{ selectionText }}</option>
-            <option v-for="(current, index) in selection" v-bind:key="index"
-                >{{ current.name }} {{ current.price | currency }}
-            </option>
+            <option
+                v-for="(current, index) in selection"
+                v-bind:key="index"
+            >{{ current.name }} {{ current.price | currency }}</option>
         </select>
         <span
             class="singular"
             v-for="(current, index) in selection"
             v-bind:key="index"
             v-else
-            >{{ current.name }} {{ current.price | currency }}
-        </span>
+        >{{ current.name }} {{ current.price | currency }}</span>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'dropdown',
+    name: "dropdown",
     props: {
         selection: { type: Array },
         label: { type: String }
     },
     data() {
         return {
-            selectionText: 'Please select'
-        }
+            selectionText: "Please select"
+        };
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>

@@ -14,13 +14,13 @@
 
 <script>
 export default {
-    name: 'CarDescription',
+    name: "CarDescription",
     props: {
         name: { type: String },
         isConvertible: { type: Boolean },
         seats: { type: Number }
     }
-}
+};
 </script>
 
 <style></style>
