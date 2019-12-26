@@ -1,5 +1,5 @@
 # fetch-cars
-Simple API fetch project for GetMyGrades code test.
+Simple API fetch project with Vue.
 
 Created with Vue-cli, Vue, Axios, Sass, Webpack & Node
 
