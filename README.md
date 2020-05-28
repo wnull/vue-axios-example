@@ -5,7 +5,7 @@ Created with Vue-cli, Vue, Axios, Sass, Webpack & Node
 
 Deployed via CI/CD on Netlify.
 
-You can view the app here: [Fetch Cars App](https://ecstatic-agnesi-e7757f.netlify.com/)
+You can view the app here: [Fetch Cars App](https://vue-axios-fetch.netlify.app)
 
 
 ## Project setup
